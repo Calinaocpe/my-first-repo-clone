@@ -1,1 +1,251 @@
 "Hello Github" 
+#include <iostream>
+using namespace std;
+
+void printLine();
+// Temperature Convertions Declarations
+double celtoFar(double celsius);
+double fartoCel(double fahrenheit);
+double keltoCel(double kelvin);
+double celtoKel(double celsius);
+void temperaturePanel();
+
+// Currency Convertion Declarations
+double pesotoDol(double peso);
+double doltoPeso(double dollar);
+double pesotoYen(double peso);
+double pesotoWon(double peso);
+void currencyPanel();
+
+// Calculator Declaration
+int calculator(int num1, int num2, int operation);
+void calculatorPanel();
+
+int main()
+{
+	int functionchoice;
+	
+	do {
+		cout << "   |CHOOSE A FUNCTION|\n";
+		cout << "(1) TEMPERATURE CONVERTER\n";
+		cout << "(2) CURRENCY CONVERTER\n";
+		cout << "(3) CALCULATOR\n";
+		cout << "(4) SHUT DOWN PROGRAM\n";
+		cout << "ENTER CHOICE: ";
+		cin >> functionchoice;
+	
+		switch (functionchoice) {
+			case 1:
+				temperaturePanel();
+				break;
+			case 2:
+				currencyPanel();
+				break;
+			case 3:
+				calculatorPanel();
+				break;
+			case 4:
+				printLine();
+				cout << "SHUT DOWN PROGRAM\n";
+				printLine();
+				break;
+			default:
+				printLine();
+				cout << "INVALID CHOICE\n";
+				printLine();
+		}
+	} while (functionchoice != 4);
+	return 0;
+}
+void temperaturePanel() {
+	double temp;
+	int conversion;
+		//TEMPERATURE PANEL
+	cout << endl;
+	do
+	{	//convertion options
+		cout << " |TEMPERATURE CONVERTION|\n";
+		cout << "(1) CELSIUS to FAHRENHEIT\n";
+		cout << "(2) FAHRENHEIT to CELSIUS\n";
+		cout << "(3) KELVIN to CELCIUS\n";
+		cout << "(4) CELCIUS to KELVIN\n";
+		cout << "(5) EXIT\n";
+		cout << "PICK A CONVERTION: ";
+		cin >> conversion;
+		cout << endl;
+		
+		switch(conversion) {
+            case 1:
+            	printLine();
+                cout << "Enter Celsius: ";
+                cin >> temp;
+                cout << "RESULT: " << celtoFar(temp) << " F\n";
+                printLine();
+				break;
+
+            case 2:
+            	printLine();
+                cout << "Enter Fahrenheit: ";
+                cin >> temp;
+                cout << "RESULT: " << fartoCel(temp) << " C\n";
+                printLine();
+                break;
+
+            case 3:
+            	printLine();
+                cout << "Enter Kelvin: ";
+                cin >> temp;
+                cout << "RESULT: " << keltoCel(temp) << " C\n";
+                printLine();
+                break;
+
+            case 4:
+            	printLine();
+                cout << "Enter Celsius: ";
+                cin >> temp;
+                cout << "RESULT: " << celtoKel(temp) << " K\n";
+                printLine();
+                break;
+
+            case 5:
+            	printLine();
+                cout << "EXITING PROGRAM\n";
+                printLine();
+                break;
+        	}
+        	cout << endl;
+	} while(conversion != 5);
+}
+// define functions, calculations
+double celtoFar(double celsius) {
+	return(celsius * 9.0 / 5.0) + 32;
+}
+double fartoCel (double fahrenheit) {
+	return(fahrenheit - 32) * 5.0 / 9.0;
+}
+double keltoCel (double kelvin) {
+	return kelvin - 273.15;
+}
+double celtoKel (double celsius) {
+	return celsius + 273.15;
+}
+
+void currencyPanel() {
+	double amount;
+	int conversion;
+		// CURRENCY PANEL
+	cout << endl;
+	do
+	{	//convertion options
+		cout << " |CURRENCY CONVERTION|\n";
+		cout << "(1) PESO to DOLLAR\n";
+		cout << "(2) DOLLAR to PESO\n";
+		cout << "(3) PESO to YEN\n";
+		cout << "(4) PESO to WON\n";
+		cout << "(5) EXIT\n";
+		cout << "PICK A CONVERTION: ";
+		cin >> conversion;
+		cout << endl;
+		
+		switch(conversion) {
+            case 1:
+            	printLine();
+                cout << "Enter Peso: ";
+                cin >> amount;
+                cout << "RESULT: " << pesotoDol(amount) << " Dollar\n";
+                printLine();
+                break;
+
+            case 2:
+            	printLine();
+                cout << "Enter Dollar: ";
+                cin >> amount;
+                cout << "RESULT: " << doltoPeso(amount) << " Php\n";
+                printLine();
+                break;
+
+            case 3:
+            	printLine();
+                cout << "Enter Peso: ";
+                cin >> amount;
+                cout << "RESULT: " << pesotoYen(amount) << " Yen\n";
+                printLine();
+                break;
+
+            case 4:
+            	printLine();
+                cout << "Enter Peso: ";
+                cin >> amount;
+                cout << "RESULT: " << pesotoWon(amount) << " Won\n";
+                printLine();
+                break;
+
+            case 5:
+            	printLine();
+                cout << "EXITING PROGRAM\n";
+                printLine();
+                break;
+        	}
+        	cout << endl;
+	} while(conversion != 5);
+} 	// CURRENCY CONVERTION
+double pesotoDol(double peso) {
+	// all convertion from Oct 22,2025
+	return(peso * 0.017);
+}
+double doltoPeso (double dollar) {
+	return(dollar * 58.45);
+}
+double pesotoYen(double peso) {
+	return (peso * 2.60);
+}
+double pesotoWon(double peso) {
+	return(peso * 24.49);
+}
+void calculatorPanel()
+{	
+	int num1, num2, operation;
+	int result;
+	// CALCULATOR PANEL
+	cout << endl;
+	do
+	{		//OPTIONS
+		cout << " |CALCULATOR OPERATIONS|\n";
+		cout << "(1) ADDITION +\n";
+		cout << "(2) SUBTRACTION -\n";
+		cout << "(3) DIVISION /\n";
+		cout << "(4) MULTIPLICATION *\n";
+		cout << "(5) EXIT\n";
+		cout << "PICK AN OPERATION: ";
+		cin >> operation;
+		cout << endl;
+		
+		if (operation == 5) {
+            cout << "EXITING PROGRAM\n";
+    	} else {
+    		printLine();
+			cout << "Input Number1: ";
+	        cin >> num1;
+	        cout << "Input Number2: ";
+	        cin >> num2;
+			
+			result = calculator (num1, num2, operation);
+			cout << "RESULT = " << result << endl;
+			printLine();
+			cout << endl;
+		}
+	} while(operation != 5);
+}
+int calculator(int num1, int num2, int operation) {
+	switch(operation)
+	{	// FORMULAS
+		case 1: return num1 + num2;
+		case 2: return num1 - num2;
+		case 3: return (num2 != 0) ? num1 / num2 : 0;
+		case 4: return num1 * num2;
+		default: return 0;
+	}
+}
+void printLine() {
+    cout << "====================" << endl;
+}
